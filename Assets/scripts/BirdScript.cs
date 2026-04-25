@@ -1,16 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+ 
+public class BirdScript : MonoBehaviour
+{
+    public Rigidbody2D myRigidbody;
+    public float flapStrength;
+    public LogicScript logic;
+    public bool birdIsAlive = true;
+    
+    void Start()
+    {
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+    }
+    
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && birdIsAlive)
+        {
+            myRigidbody.linearVelocity = Vector2.up * flapStrength;
+        }
+    }
 
-public class BirdScript : MonoBehaviour{
-   private Rigidbody2D myrigidbody;
-   void Start() {
-      myrigidbody = GetComponent<Rigidbody2D>();
-   }
-   void Update() {
-       
-
-      if(Input.GetKeyDown(KeyCode.Space)){
-         myrigidbody.linearVelocityY = 10;
-
-      }
-   }
-};
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        logic.gameOver();
+        birdIsAlive = false;
+    }
+}
