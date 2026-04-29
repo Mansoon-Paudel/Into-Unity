@@ -265,6 +265,7 @@ MonoBehaviour:
   flapStrength: 10
   logic: {fileID: 191788844}
   birdIsAlive: 1
+  outOfBoundsPadding: 0.1
 --- !u!50 &101432985
 Rigidbody2D:
   serializedVersion: 5
@@ -454,7 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e98b51f8f895c44ef91c067644567ede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  playerScore: 1
+  playerScore: 0
   scoreText: {fileID: 1399732647}
   gameOverScreen: {fileID: 1870975702}
 --- !u!4 &191788845
