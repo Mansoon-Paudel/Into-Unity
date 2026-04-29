@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="/BirdScript (snapshot).cs">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="/BirdScript (snapshot).cs" />
+              <option name="originalContent" value="using System.Collections;&#10;using System.Collections.Generic;&#10;using UnityEngine;&#10; &#10;public class BirdScript : MonoBehaviour&#10;{&#10;    public Rigidbody2D myRigidbody;&#10;    public float flapStrength;&#10;    public LogicScript logic;&#10;    public bool birdIsAlive = true;&#10;    &#10;    void Start()&#10;    {&#10;        logic = GameObject.FindGameObjectWithTag(&quot;Logic&quot;).GetComponent&lt;LogicScript&gt;();&#10;    }&#10;    &#10;    void Update()&#10;    {&#10;        if (Input.GetKeyDown(KeyCode.Space) &amp;&amp; birdIsAlive)&#10;        {&#10;            myRigidbody.linearVelocity = Vector2.up * flapStrength;&#10;        }&#10;    }&#10; &#10;    private void OnCollisionEnter2D(Collision2D collision)&#10;    {&#10;        logic.gameOver();&#10;        birdIsAlive = false;&#10;    }&#10;}&#10;" />
+              <option name="updatedContent" value="using System.Collections;&#10;using System.Collections.Generic;&#10;using UnityEngine;&#10; &#10;public class BirdScript : MonoBehaviour&#10;{&#10;    public Rigidbody2D myRigidbody;&#10;    public float flapStrength;&#10;    public LogicScript logic;&#10;    public bool birdIsAlive = true;&#10;    public float outOfBoundsPadding = 0.1f;&#10;    &#10;    void Start()&#10;    {&#10;        logic = GameObject.FindGameObjectWithTag(&quot;Logic&quot;).GetComponent&lt;LogicScript&gt;();&#10;    }&#10;    &#10;    void Update()&#10;    {&#10;        if (Input.GetKeyDown(KeyCode.Space) &amp;&amp; birdIsAlive)&#10;        {&#10;            myRigidbody.linearVelocity = Vector2.up * flapStrength;&#10;        }&#10;&#10;        if (birdIsAlive)&#10;        {&#10;            CheckOutOfBounds();&#10;        }&#10;    }&#10;&#10;    void CheckOutOfBounds()&#10;    {&#10;        Camera cam = Camera.main;&#10;        if (cam == null)&#10;        {&#10;            return;&#10;        }&#10;&#10;        Vector3 viewportPos = cam.WorldToViewportPoint(transform.position);&#10;        if (viewportPos.y &lt; -outOfBoundsPadding || viewportPos.y &gt; 1f + outOfBoundsPadding)&#10;        {&#10;            Die();&#10;        }&#10;    }&#10; &#10;    private void OnCollisionEnter2D(Collision2D collision)&#10;    {&#10;        Die();&#10;    }&#10;&#10;    void Die()&#10;    {&#10;        if (!birdIsAlive)&#10;        {&#10;            return;&#10;        }&#10;&#10;        birdIsAlive = false;&#10;        logic.gameOver();&#10;    }&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
