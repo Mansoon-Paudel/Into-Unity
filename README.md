@@ -2,22 +2,20 @@
  
 A 2D classic Flappy Bird game made with Unity to get myself started and filmiliar with the engine..
  
-**Flap Flap get points.
+**Flap Flap get points.**
  
 ---
  
 ## Controls
-- 
- 
+- SPACE - Flap
 ---
  
 ## Features
-- Enemy AI with chase, attack and stun
-- Upgrade your stats, skills and character tier
-- Coins, crystals and kills tracked across runs
+- Classic Flappy bitd
+- Bounds, If you go out you die
 ---
  
 Video
-[![Watch Gameplay](https://github.com/user-attachments/assets/3003dbff-4d97-4411-9e01-1ba2f368567b
-)](https://youtu.be/p0BknUG2fCc)
+[![Watch Gameplay](https://github.com/user-attachments/assets/aee2efb1-99c8-4b50-9bd6-170beb5ed096
+)](https://youtu.be/CEFSH32_AnE)
  
